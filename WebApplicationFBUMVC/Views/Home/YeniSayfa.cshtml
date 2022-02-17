@@ -1,0 +1,13 @@
+﻿@model List<Person>
+
+@{ 
+    foreach (var person in Model)
+    {
+    <div class="kisiListItem">
+        <i> @person.Name</i> <span style="font-weight:bold">@person.Surname</span>
+    </div>
+    }
+
+}
+
+
