@@ -9,5 +9,39 @@
     }
 
 }
+<form id="personForm" action="/Home/CreatePerson" method="post">
+    Ad:<input class="form-control" type="text" name="name" id="name" />
+    Soyad:<input type="text" name="surname" id="surname" />
+
+   @* <input type="submit" value="kaydet" />*@
+    
+    <button onclick="return ekle()">ekle</button>
+
+    @*<a href="/home/CreatePerson?name=denemeName&surname=testsurname">Yeni kişi</a>*@
+</form>
+<script>
+    function ekle() {
 
 
+      //  var name = document.getElementById('name').value;
+        name = $('#name').val();
+       // var surname = document.getElementById('surname').value;
+        surname = $('#surname').val();
+        console.log(name);
+        console.log(surname);
+
+        if (name == "") {
+            alert("name can not be empty!");
+            return false;
+        }
+
+
+        //document.getElementById('personForm').submit();
+      //  if (name != "")
+      //  $('#personForm').submit();
+        //var url = "/home/CreatePerson?name=" + name + "&surname=" + surname;
+
+        //window.location.href = url;
+
+    }
+</script>

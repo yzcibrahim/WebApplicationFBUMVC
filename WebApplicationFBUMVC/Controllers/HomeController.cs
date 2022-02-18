@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DataLayer;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -35,16 +36,37 @@ namespace WebApplicationFBUMVC.Controllers
         public IActionResult YeniSayfa()
         {
             List<Person> people = new List<Person>();
-            
-            Person p = new Person("ibrahim","yazıcı");
-
-            people.Add(p);
-            people.Add(new Person("Göktuğ", "Kozkaya"));
-            people.Add(new Person("Kaan", "Karalı"));
-            people.Add(new Person("Alper", "Ayık"));
-            people.Add(new Person("Çağatay", "Kamit"));
+            PersonRepository repository = new PersonRepository();
+            people = repository.GetPeople();
             return View(people);
         }
+
+
+        [HttpPost]
+        public IActionResult CreatePerson(string name, string surname)
+        {
+
+            PersonRepository repository = new PersonRepository();
+
+            // Person p = new Person(Request.Query["name"], Request.Query["surname"]);
+            Person p = new Person(name, surname);
+
+            repository.AddPerson(p);
+            // return View();
+            return RedirectToAction("YeniSayfa");
+        }
+
+        public IActionResult CreatePerson()
+        {
+
+            return View();
+        }
+
+
+
+
+
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
