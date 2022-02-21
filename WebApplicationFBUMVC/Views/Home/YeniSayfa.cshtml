@@ -29,12 +29,23 @@
         surname = $('#surname').val();
         console.log(name);
         console.log(surname);
-
+        var result = true;
+        var message = "";
         if (name == "") {
-            alert("name can not be empty!");
-            return false;
+            message += "name can not be empty!\n"
+           
+            result = false;
         }
 
+        if (surname == "") {
+            message += "surname can not be empty!";
+            result = false;
+        }
+
+        if (result == false) {
+            alert(message);
+            return false;
+        }
 
         //document.getElementById('personForm').submit();
       //  if (name != "")

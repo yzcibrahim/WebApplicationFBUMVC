@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApplicationFBUMVC.Helper;
 using WebApplicationFBUMVC.Models;
 
 namespace WebApplicationFBUMVC.Controllers
@@ -38,9 +39,20 @@ namespace WebApplicationFBUMVC.Controllers
             List<Person> people = new List<Person>();
             PersonRepository repository = new PersonRepository();
             people = repository.GetPeople();
+
+            foreach(var person  in people)
+            {
+                person.Name = person.Name.ToPascal("+");
+                person.Surname = person.Surname.ToPascal("-");
+
+            }
+
+
+
             return View(people);
         }
 
+      
 
         [HttpPost]
         public IActionResult CreatePerson(string name, string surname)
@@ -62,7 +74,7 @@ namespace WebApplicationFBUMVC.Controllers
             return View();
         }
 
-
+     
 
 
 
