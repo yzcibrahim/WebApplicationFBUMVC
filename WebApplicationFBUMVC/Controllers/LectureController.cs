@@ -41,5 +41,12 @@ namespace WebApplicationFBUMVC.Controllers
             return RedirectToAction("Index");
         }
 
+        public IActionResult Delete(int id)
+        {
+            _repository.DeleteLecture(id);
+            return RedirectToAction("Index");
+        }
+
+
     }
 }

@@ -31,6 +31,23 @@ namespace DataLayer
         {
             _lectures.Add(lecture);
         }
+
+        public void DeleteLecture(int id)
+        {
+            // _lectures.Remove(_lectures.First(c => c.Id == id));
+
+            Lecture silinecek = new Lecture();
+
+            foreach(var lect in _lectures)
+            {
+                if (lect.Id == id)
+                {
+                    silinecek = lect;
+                    break;
+                }
+            }
+            _lectures.Remove(silinecek);
+        }
         
 
     }
