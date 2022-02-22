@@ -10,8 +10,13 @@ namespace DataLayer
     {
         private static List<Person> _people;
 
+        static int id = 0;
+
+        public int Id;
         public PersonRepository()
         {
+            Id = ++id;
+
             if(_people==null)
             Init();
         }

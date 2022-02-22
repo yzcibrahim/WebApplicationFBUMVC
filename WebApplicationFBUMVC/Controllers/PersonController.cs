@@ -11,12 +11,13 @@ namespace WebApplicationFBUMVC.Controllers
     public class PersonController : Controller
     {
         PersonRepository _repository;
-        public PersonController()
+        public PersonController(PersonRepository repository)
         {
-            _repository = new PersonRepository();
+            _repository = repository;
         }
         public IActionResult List()
         {
+            return RedirectToAction("Index", "Lecture");
             List<Person> people = _repository.GetPeople();
 
             List<PersonViewModel> model = new List<PersonViewModel>();

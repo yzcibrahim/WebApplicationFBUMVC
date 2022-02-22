@@ -11,10 +11,12 @@ namespace WebApplicationFBUMVC.Models
     {
         public int Id { get; set; }
 
+        [Palindrom]
         [NotEqual]
         [Required(ErrorMessage ="Name zorunludur")]
         public string Name { get; set; }
 
+        [NotEqName]
         [Required]
         [MinLength(2)]
         [NotEqual(kim ="kaAn")]

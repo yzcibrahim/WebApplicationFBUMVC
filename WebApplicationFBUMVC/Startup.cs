@@ -1,3 +1,4 @@
+using DataLayer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -23,6 +24,11 @@ namespace WebApplicationFBUMVC
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            // services.AddTransient<PersonRepository>();
+        //  services.AddSingleton<PersonRepository>();
+               services.AddScoped<PersonRepository>();
+
+            services.AddTransient<LectureRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -10,9 +10,11 @@ namespace WebApplicationFBUMVC.Controllers
     public class LectureController : Controller
     {
         LectureRepository _repository;
-        public LectureController()
+        PersonRepository _personrepo;
+        public LectureController(PersonRepository personrepo, LectureRepository lectureRepository)
         {
-            _repository = new LectureRepository();
+            _personrepo = personrepo;
+            _repository = lectureRepository;
         }
         public IActionResult Index()
         {

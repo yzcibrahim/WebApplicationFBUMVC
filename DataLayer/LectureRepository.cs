@@ -10,7 +10,7 @@ namespace DataLayer
     {
         private static List<Lecture> _lectures;
 
-        public LectureRepository()
+        public LectureRepository(PersonRepository pr)
         {
             if(_lectures == null)
             Init();
