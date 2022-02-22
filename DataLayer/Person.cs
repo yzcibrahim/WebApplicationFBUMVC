@@ -9,6 +9,12 @@ namespace DataLayer
     public class Person
     {
         static int total = 0;
+
+        public Person()
+        {
+            Id = total;
+            total++;
+        }
         public Person(string name, string surname)
         {
             Name = name;

@@ -46,8 +46,10 @@ namespace WebApplicationFBUMVC
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    // pattern: "{controller=Home}/{action=Index}/{id?}");
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                   // pattern: "{controller=Home}/{action=Index}/{id?}");
+                   // pattern: "{controller=Home}/{action=Index}/{id?}");
+                   // pattern: "{controller=Person}/{action=List}/{asdasd?}");
+                   pattern: "{controller=Person}/{action=List}/{id?}");
             });
         }
     }
